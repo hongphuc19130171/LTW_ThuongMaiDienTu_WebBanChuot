@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="testweb" />
+        <module name="LTW_ThuongMaiDienTu_WebBanChuot" />
       </profile>
     </annotationProcessing>
   </component>
