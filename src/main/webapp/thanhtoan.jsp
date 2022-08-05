@@ -273,7 +273,7 @@
                 }
 
                 if (total < 3) {
-                    alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+                    alert('Số lượng đặt hàng tối thiểu là 3. Vui lòng thêm nhiều hơn vào giỏ hàng của bạn trước khi thanh toán');
                     evt.preventDefault();
                 }
             });
