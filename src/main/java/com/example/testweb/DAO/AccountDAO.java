@@ -98,7 +98,7 @@ public class AccountDAO {
         } catch (Exception e) {
 
         }
-        return Mail.send(email, "Mật khẩu của bạn là: "+a);
+        return Mail.send(email, "Your Pass: "+a);
     }
 
     public static void main(String[] args) {

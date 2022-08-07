@@ -4,6 +4,12 @@
 <!-- top Products -->
 <!DOCTYPE html>
 <html lang="zxx">
+<c:if test = "${sessionScope.username != 'admin'}">
+    <script type="text/javascript">
+        alert("Bạn không có quyền truy cập trang web này!!")
+        window.location.href = "Trangchu"
+    </script>
+</c:if>
 
 <head>
     <title>Mouse Shop</title>
@@ -68,95 +74,9 @@
 <%--stat top bar--%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<div class="agile-main-top">
-    <div class="container-fluid">
-        <div class="row main-top-w3l py-2">
-            <div class="col-lg-4 header-most-top">
-                <p class="text-white text-lg-left text-center">Cửa hàng chuột uy tín số 1 thế giới
-                    <i class="fas fa-shopping-cart ml-1"></i>
-                </p>
-            </div>
-            <div class="col-lg-8 header-right mt-lg-0 mt-2">
-                <!-- header lists -->
-                <ul>
-
-                    <li class="text-center  text-white">
-
-                        <i class="fas fa-truck mr-2"></i>Kiểm tra vận chuyển</a>
-                    </li>
-                    <li class="text-center  text-white">
-                        <i class="fas fa-phone mr-2"></i> 083 8883 388
-                    </li>
-                    <c:if test="${sessionScope.username == null}" >
-                        <li class="text-center b text-white">
-                            <a class="nav-link" href="Login">Đăng nhập</a>
-                        </li>
-                        <li class="text-center text-white">
-                            <a class="nav-link" href="SignUp">Đăng kí</a>
-                        </li>
-
-                    </c:if>
-                    <c:if test="${sessionScope.username != null}" >
-                        <li class="text-center b text-white">
-                            <a>Chào: ${sessionScope.username}</a>
-                        </li>
-                        <c:if test="${sessionScope.username == 'admin'}">
-                            <li class="text-center b text-white">
-                                <a class="nav-link" href="">Quản lý</a>
-                            </li>
-                        </c:if>
-                        <li class="text-center text-white">
-                            <a href="${pageContext.request.contextPath}/Login?action=logout">Đăng xuất</a>
-
-                        </li>
-
-                    </c:if>
-
-                </ul>
-                <!-- //header lists -->
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Button trigger modal(select-location) -->
 
 
-<!-- modals -->
 
-
-<!-- header-bottom-->
-<div class="header-bot">
-    <div class="container">
-        <div class="row header-bot_inner_wthreeinfo_header_mid">
-            <!-- logo -->
-            <div class="col-md-3 logo_agile">
-                <h1 class="text-center">
-                    <a href="Trangchu" class="font-weight-bold font-italic">
-                        <img src="images/logo_Mouse_Shop.png" alt=" " class="img-fluid">Mouse Store
-                    </a>
-                </h1>
-            </div>
-            <!-- //logo -->
-            <!-- header-bot -->
-            <div class="col-md-9 header mt-4 mb-md-0 mb-4">
-                <div class="row">
-                    <!-- search -->
-                    <div class="col-10 agileits_search">
-                        <form class="form-inline" action="Sanpham?fill=4&page=1" method="post">
-                            <input class="form-control mr-sm-2" name="timkiem" type="search" placeholder="Tìm kiếm" aria-label="Search" required>
-                            <button class="btn my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                        </form>
-                    </div>
-                    <!-- //search -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<%--end top bar--%>
 
 <%--start menu--%>
 
@@ -172,32 +92,20 @@
                 <ul class="navbar-nav ml-auto text-center mr-xl-5">
                     <li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
                         <a class="nav-link" href="Trangchu">Trang chủ
-                            <span class="sr-only">(current)</span>
+
                         </a>
                     </li>
-
-
-                    <c:forEach var="danhmuc" items="${danhmuc}">
-                        <a class="nav-link" href="Danhmuc-${danhmuc.stt_nha_san_xuat}?page=1">${danhmuc.nha_san_xuat}</a>
-                    </c:forEach>
-
 
                     <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link" href="About">Về chúng tôi</a>
+                        <a class="nav-link" href="AdminProduct">Danh sách sản phẩm</a>
                     </li>
 
-                    <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Khách hàng
-                        </a>
-                        <div class="dropdown-menu">
-
-                            <a class="dropdown-item" href="Giohang">Kiểm tra giỏ hàng</a>
-                            <a class="dropdown-item" href="Damua">Sản phẩm đã mua</a>
-                            <a class="dropdown-item" href="DonHang">Đơn hàng đã đặt</a>
-                            <a class="dropdown-item" href="ChangePass">Đổi mật khẩu</a>
-                        </div>
+                    <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+                        <a class="nav-link" href="AdminStatistic">Thống kê thông số</a>
                     </li>
+
+
+
                     <li class="nav-item">
 
 
@@ -210,67 +118,82 @@
 </div>
 
 <%--end menu--%>
+<br><br>
+<h1 class="text-center" style="color: blue">Chỉnh sửa sản phẩm</h1> <br><br>
+
+<form action="AdminCheck" method="post" class="creditly-card-form agileinfo_form" accept-charset="utf-8">
+
+    <div class="creditly-wrapper wthree, w3_agileits_wrapper">
+        <div class="information-wrapper">
+            <div class="first-row">
+                ID sản phẩm
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="sanpham_id" value="${p.sanpham_id}" required="" readonly>
+                </div>
+                Tên sản phẩm
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="sanpham_name" value="${p.sanpham_name}" required="">
+                </div>
+                Danh mục
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="danhmuc_id" value="${p.danhmuc_id}" required="">
+                </div>
+                Giá gốc
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="sanpham_gia" value="${p.sanpham_gia}" required="">
+                </div>
+                Giá khuyến mãi
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="sanpham_giakm" value="${p.sanpham_giakm}" required="">
+                </div>
+                Sản phẩm bán chạy
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="sanpham_active" value="${p.sanpham_active}" required="">
+                </div>
+                Sản phẩm HOT
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="sanpham_hot" value="${p.sanpham_hot}" required="">
+                </div>
+                Số lượng
+                <div class="controls form-group">
+                    <input class="billing-address-name form-control" type="text" name="sanpham_soluong" value="${p.sanpham_soluong}" required="">
+                </div>
+                Hình ảnh
+                <input type="file" id="img" name="img">
+                Hình ảnh thêm 1
+                <input type="file" id="img_1" name="img_1">
+                Hình ảnh thêm 2
+                <input type="file" id="img_2" name="img_2">
+                Hình ảnh thêm 3
+                <input type="file" id="img_3" name="img_3">
+                Hình ảnh thêm 4
+                <input type="file" id="img_4" name="img_4">
 
 
-
-<!-- checkout page -->
-<div class="privacy py-sm-5 py-4">
-    <div class="container py-xl-4 py-lg-2">
-        <!-- tittle heading -->
-        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-            <span>Danh sách đơn hàng đã đặt</span>
-        </h3>
-
-        <!-- //tittle heading -->
-        <div class="checkout-right">
-
-            <div class="table-responsive">
-                <table class="timetable_sub">
-                    <thead>
-                    <tr>
-
-                        <th >Tên</th>
-                        <th>Số điện thoại</th>
-                        <th>Địa chỉ</th>
-                        <th>ID đơn hàng</th>
-                        <th>Sản phẩm</th>
-                        <th>Thanh toán</th>
-                        <th>Trạng thái</th>
-
-
-                    </tr>
-                    </thead>
-                    <tbody>
-
-
-                    <c:forEach var = "khach_hang" items = "${k}">
-
-                        <tr class="rem1">
-                            <td class="invert">${khach_hang.ten}</td>
-                            <td class="invert">${khach_hang.sdt}</td>
-                            <td class="invert">${khach_hang.diachi}</td>
-                            <td class="invert">${khach_hang.ID_donhang}</td>
-                            <td class="invert">${khach_hang.san_pham}</td>
-                            <td class="invert"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${khach_hang.tong_tien}"  /> đ </td>
-                            <c:if test="${khach_hang.trang_thai == 'danggiao'}">
-                                <td class="invert" style="color: #c82333">Đang Giao</td>
-                            </c:if>
-                            <c:if test="${khach_hang.trang_thai == 'dagiao'}">
-                                <td class="invert" style="color: #06f13c">Đã Giao</td>
-                            </c:if>
-
-                        </tr>
-                    </c:forEach>
-
-                    </tbody>
-                </table>
             </div>
-        </div>
 
+            <button class="submit check_out btn" onclick="myFunction()">Cập nhật</button>
+
+
+        </div>
     </div>
-</div>
-<!-- //checkout page -->
-<%@ include file = "../includes/footer.jsp" %>
+</form>
+
+
+
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!-- top Products -->
+<%@ include file = "includes/footer.jsp" %>
+
+
+
+<!-- //footer -->
+
+
+<!-- js-files -->
+<!-- jquery -->
 <script src="js/jquery-2.2.3.min.js"></script>
 <!-- //jquery -->
 
@@ -328,7 +251,7 @@
         }
 
         if (total < 3) {
-            alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+            alert('Số lượng đặt hàng tối thiểu là 3. Vui lòng thêm nhiều hơn vào giỏ hàng của bạn trước khi thanh toán');
             evt.preventDefault();
         }
     });

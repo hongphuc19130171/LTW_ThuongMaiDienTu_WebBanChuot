@@ -28,7 +28,7 @@ public class Mail {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username,"Mouse Store"));
             message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
-            message.setSubject("Quên mật khẩu Mouse Store");
+            message.setSubject("Mouse Store");
             message.setText(pass);
             Transport.send(message);
 

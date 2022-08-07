@@ -4,6 +4,12 @@
 <!-- top Products -->
 <!DOCTYPE html>
 <html lang="zxx">
+<c:if test = "${sessionScope.username != 'admin'}">
+    <script type="text/javascript">
+        alert("Bạn không có quyền truy cập trang web này!!")
+        window.location.href = "Trangchu"
+    </script>
+</c:if>
 
 <head>
     <title>Mouse Shop</title>
@@ -68,95 +74,10 @@
 <%--stat top bar--%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<div class="agile-main-top">
-    <div class="container-fluid">
-        <div class="row main-top-w3l py-2">
-            <div class="col-lg-4 header-most-top">
-                <p class="text-white text-lg-left text-center">Cửa hàng chuột uy tín số 1 thế giới
-                    <i class="fas fa-shopping-cart ml-1"></i>
-                </p>
-            </div>
-            <div class="col-lg-8 header-right mt-lg-0 mt-2">
-                <!-- header lists -->
-                <ul>
-
-                    <li class="text-center  text-white">
-
-                        <i class="fas fa-truck mr-2"></i>Kiểm tra vận chuyển</a>
-                    </li>
-                    <li class="text-center  text-white">
-                        <i class="fas fa-phone mr-2"></i> 083 8883 388
-                    </li>
-                    <c:if test="${sessionScope.username == null}" >
-                        <li class="text-center b text-white">
-                            <a class="nav-link" href="Login">Đăng nhập</a>
-                        </li>
-                        <li class="text-center text-white">
-                            <a class="nav-link" href="SignUp">Đăng kí</a>
-                        </li>
-
-                    </c:if>
-                    <c:if test="${sessionScope.username != null}" >
-                        <li class="text-center b text-white">
-                            <a>Chào: ${sessionScope.username}</a>
-                        </li>
-                        <c:if test="${sessionScope.username == 'admin'}">
-                            <li class="text-center b text-white">
-                                <a class="nav-link" href="">Quản lý</a>
-                            </li>
-                        </c:if>
-                        <li class="text-center text-white">
-                            <a href="${pageContext.request.contextPath}/Login?action=logout">Đăng xuất</a>
-
-                        </li>
-
-                    </c:if>
-
-                </ul>
-                <!-- //header lists -->
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Button trigger modal(select-location) -->
 
 
-<!-- modals -->
 
 
-<!-- header-bottom-->
-<div class="header-bot">
-    <div class="container">
-        <div class="row header-bot_inner_wthreeinfo_header_mid">
-            <!-- logo -->
-            <div class="col-md-3 logo_agile">
-                <h1 class="text-center">
-                    <a href="Trangchu" class="font-weight-bold font-italic">
-                        <img src="images/logo_Mouse_Shop.png" alt=" " class="img-fluid">Mouse Store
-                    </a>
-                </h1>
-            </div>
-            <!-- //logo -->
-            <!-- header-bot -->
-            <div class="col-md-9 header mt-4 mb-md-0 mb-4">
-                <div class="row">
-                    <!-- search -->
-                    <div class="col-10 agileits_search">
-                        <form class="form-inline" action="Sanpham?fill=4&page=1" method="post">
-                            <input class="form-control mr-sm-2" name="timkiem" type="search" placeholder="Tìm kiếm" aria-label="Search" required>
-                            <button class="btn my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                        </form>
-                    </div>
-                    <!-- //search -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<%--end top bar--%>
 
 <%--start menu--%>
 
@@ -172,32 +93,23 @@
                 <ul class="navbar-nav ml-auto text-center mr-xl-5">
                     <li class="nav-item active mr-lg-2 mb-lg-0 mb-2">
                         <a class="nav-link" href="Trangchu">Trang chủ
-                            <span class="sr-only">(current)</span>
+
                         </a>
                     </li>
-
-
-                    <c:forEach var="danhmuc" items="${danhmuc}">
-                        <a class="nav-link" href="Danhmuc-${danhmuc.stt_nha_san_xuat}?page=1">${danhmuc.nha_san_xuat}</a>
-                    </c:forEach>
-
 
                     <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link" href="About">Về chúng tôi</a>
+                        <a class="nav-link" href="AdminProduct">Danh sách sản phẩm</a>
                     </li>
 
-                    <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Khách hàng
-                        </a>
-                        <div class="dropdown-menu">
-
-                            <a class="dropdown-item" href="Giohang">Kiểm tra giỏ hàng</a>
-                            <a class="dropdown-item" href="Damua">Sản phẩm đã mua</a>
-                            <a class="dropdown-item" href="DonHang">Đơn hàng đã đặt</a>
-                            <a class="dropdown-item" href="ChangePass">Đổi mật khẩu</a>
-                        </div>
+                    <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+                        <a class="nav-link" href="AdminStatistic">Thống kê thông số</a>
                     </li>
+                    <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
+                        <a class="nav-link" href="AdminAdd">Thêm sản phẩm</a>
+                    </li>
+
+
+
                     <li class="nav-item">
 
 
@@ -208,69 +120,68 @@
         </nav>
     </div>
 </div>
+<br><br><br>
 
 <%--end menu--%>
 
+<div class="checkout-right">
+
+    <div class="table-responsive">
+        <table class="timetable_sub">
+            <thead>
+            <tr>
+                <th >ID</th>
+                <th >Tên</th>
+                <th >Phân loại</th>
+                <th >Giá gốc</th>
+                <th >Giá khuyến mãi</th>
+                <th >Sản phẩm bán chạy</th>
+                <th >Sản phẩm hot</th>
+                <th >Số lượng</th>
+                <th>Hình ảnh</th>
+                <th>Trạng thái</th>
 
 
-<!-- checkout page -->
-<div class="privacy py-sm-5 py-4">
-    <div class="container py-xl-4 py-lg-2">
-        <!-- tittle heading -->
-        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-            <span>Danh sách đơn hàng đã đặt</span>
-        </h3>
-
-        <!-- //tittle heading -->
-        <div class="checkout-right">
-
-            <div class="table-responsive">
-                <table class="timetable_sub">
-                    <thead>
-                    <tr>
-
-                        <th >Tên</th>
-                        <th>Số điện thoại</th>
-                        <th>Địa chỉ</th>
-                        <th>ID đơn hàng</th>
-                        <th>Sản phẩm</th>
-                        <th>Thanh toán</th>
-                        <th>Trạng thái</th>
+            </tr>
+            </thead>
+            <tbody>
 
 
-                    </tr>
-                    </thead>
-                    <tbody>
+            <c:forEach var = "prd" items = "${product}">
+
+                <tr class="rem1">
+                    <td class="invert">${prd.sanpham_id}</td>
+                    <td class="invert">${prd.sanpham_name}</td>
+                    <td class="invert">${prd.danhmuc_id}</td>
+                    <td class="invert">${prd.sanpham_gia}</td>
+                    <td class="invert">${prd.sanpham_giakm}</td>
+                    <td class="invert">${prd.sanpham_active}</td>
+                    <td class="invert">${prd.sanpham_hot}</td>
+                    <td class="invert">${prd.sanpham_soluong}</td>
+                    <td class="invert"><img src="images/${prd.sanpham_image}" alt=" " class="img-responsive"></td>
+                    <td class="invert"><a href="AdminEdit?id=${prd.sanpham_id} " onclick="return confirm('Bạn có muốn sửa sản phẩm này không')">Sửa</a><br><a href="AdminCheckdel?id=${prd.sanpham_id}" onclick="return confirm('Bạn có chắc xóa sản phẩm này không')" >Xóa</a></td>
 
 
-                    <c:forEach var = "khach_hang" items = "${k}">
+                </tr>
+            </c:forEach>
 
-                        <tr class="rem1">
-                            <td class="invert">${khach_hang.ten}</td>
-                            <td class="invert">${khach_hang.sdt}</td>
-                            <td class="invert">${khach_hang.diachi}</td>
-                            <td class="invert">${khach_hang.ID_donhang}</td>
-                            <td class="invert">${khach_hang.san_pham}</td>
-                            <td class="invert"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${khach_hang.tong_tien}"  /> đ </td>
-                            <c:if test="${khach_hang.trang_thai == 'danggiao'}">
-                                <td class="invert" style="color: #c82333">Đang Giao</td>
-                            </c:if>
-                            <c:if test="${khach_hang.trang_thai == 'dagiao'}">
-                                <td class="invert" style="color: #06f13c">Đã Giao</td>
-                            </c:if>
-
-                        </tr>
-                    </c:forEach>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
+            </tbody>
+        </table>
     </div>
 </div>
-<!-- //checkout page -->
-<%@ include file = "../includes/footer.jsp" %>
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!-- top Products -->
+<%@ include file = "includes/footer.jsp" %>
+
+
+
+<!-- //footer -->
+
+
+<!-- js-files -->
+<!-- jquery -->
 <script src="js/jquery-2.2.3.min.js"></script>
 <!-- //jquery -->
 
@@ -328,7 +239,7 @@
         }
 
         if (total < 3) {
-            alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+            alert('Số lượng đặt hàng tối thiểu là 3. Vui lòng thêm nhiều hơn vào giỏ hàng của bạn trước khi thanh toán');
             evt.preventDefault();
         }
     });

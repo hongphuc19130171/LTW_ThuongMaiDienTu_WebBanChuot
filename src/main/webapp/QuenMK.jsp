@@ -85,7 +85,7 @@
                         <i class="fas fa-truck mr-2"></i>Kiểm tra vận chuyển</a>
                     </li>
                     <li class="text-center  text-white">
-                        <i class="fas fa-phone mr-2"></i> 083 8883 388
+                        <i class="fas fa-phone mr-2"></i> 083 8883 888
                     </li>
                     <c:if test="${sessionScope.username == null}" >
                         <li class="text-center b text-white">
@@ -106,7 +106,7 @@
                             </li>
                         </c:if>
                         <li class="text-center text-white">
-                            <a href="${pageContext.request.contextPath}/Login?action=logout">Đăng xuất</a>
+                            <a href="${pageContext.request.contextPath}/account?action=logout">Đăng xuất</a>
 
                         </li>
 
@@ -212,206 +212,35 @@
 <%--end menu--%>
 
 
-
-<!-- checkout page -->
-<div class="privacy py-sm-5 py-4">
-    <div class="container py-xl-4 py-lg-2">
-        <!-- tittle heading -->
-        <h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
-            <span>Danh sách đơn hàng đã đặt</span>
-        </h3>
-
-        <!-- //tittle heading -->
-        <div class="checkout-right">
-
-            <div class="table-responsive">
-                <table class="timetable_sub">
-                    <thead>
-                    <tr>
-
-                        <th >Tên</th>
-                        <th>Số điện thoại</th>
-                        <th>Địa chỉ</th>
-                        <th>ID đơn hàng</th>
-                        <th>Sản phẩm</th>
-                        <th>Thanh toán</th>
-                        <th>Trạng thái</th>
+<div class="banner-bootom-w3-agileits py-0">
+    <div class="container py-xl-0 py-lg-2">
 
 
-                    </tr>
-                    </thead>
-                    <tbody>
 
-
-                    <c:forEach var = "khach_hang" items = "${k}">
-
-                        <tr class="rem1">
-                            <td class="invert">${khach_hang.ten}</td>
-                            <td class="invert">${khach_hang.sdt}</td>
-                            <td class="invert">${khach_hang.diachi}</td>
-                            <td class="invert">${khach_hang.ID_donhang}</td>
-                            <td class="invert">${khach_hang.san_pham}</td>
-                            <td class="invert"><fmt:formatNumber type = "number" maxFractionDigits = "3" value = "${khach_hang.tong_tien}"  /> đ </td>
-                            <c:if test="${khach_hang.trang_thai == 'danggiao'}">
-                                <td class="invert" style="color: #c82333">Đang Giao</td>
-                            </c:if>
-                            <c:if test="${khach_hang.trang_thai == 'dagiao'}">
-                                <td class="invert" style="color: #06f13c">Đã Giao</td>
-                            </c:if>
-
-                        </tr>
-                    </c:forEach>
-
-                    </tbody>
-                </table>
+        <div id="content" class="flex">
+            <div class="">
+                <div class="page-content page-container" id="page-content">
+                    <div class="padding">
+                        <div class="row">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header"><strong>Quên mật khẩu</strong></div>
+                                    <div class="card-body">
+                                        ${error }
+                                        <form method="post" action="${pageContext.request.contextPath}/FogotPass">
+                                            <div class="form-group"><label class="text-muted">Địa chỉ Email</label><input type="text" class="form-control" name="email"> </div>
+                                            <div class="form-group"><label class="text-muted">Tên tài khoản</label><input type="text" class="form-control" name="user"> </div>
+                                            <div class="form-group">
+                                                Chưa có tài khoản? <a href="SignUp">Đăng kí </a>ngay!
+                                            </div> <button type="submit" class="btn btn-primary">Lấy lại mật khẩu</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-    </div>
-</div>
-<!-- //checkout page -->
-<%@ include file = "../includes/footer.jsp" %>
-<script src="js/jquery-2.2.3.min.js"></script>
-<!-- //jquery -->
-
-<!-- nav smooth scroll -->
-<script>
-    $(document).ready(function () {
-        $(".dropdown").hover(
-            function () {
-                $('.dropdown-menu', this).stop(true, true).slideDown("fast");
-                $(this).toggleClass('open');
-            },
-            function () {
-                $('.dropdown-menu', this).stop(true, true).slideUp("fast");
-                $(this).toggleClass('open');
-            }
-        );
-    });
-</script>
-<!-- //nav smooth scroll -->
-
-<!-- popup modal (for location)-->
-<script src="js/jquery.magnific-popup.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.popup-with-zoom-anim').magnificPopup({
-            type: 'inline',
-            fixedContentPos: false,
-            fixedBgPos: true,
-            overflowY: 'auto',
-            closeBtnInside: true,
-            preloader: false,
-            midClick: true,
-            removalDelay: 300,
-            mainClass: 'my-mfp-zoom-in'
-        });
-
-    });
-</script>
-<!-- //popup modal (for location)-->
-
-<!-- cart-js -->
-<script src="js/minicart.js"></script>
-<script>
-    paypals.minicarts.render(); //use only unique class names other than paypals.minicarts.Also Replace same class name in css and minicart.min.js
-
-    paypals.minicarts.cart.on('checkout', function (evt) {
-        var items = this.items(),
-            len = items.length,
-            total = 0,
-            i;
-
-        // Count the number of each item in the cart
-        for (i = 0; i < len; i++) {
-            total += items[i].get('quantity');
-        }
-
-        if (total < 3) {
-            alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
-            evt.preventDefault();
-        }
-    });
-</script>
-<!-- //cart-js -->
-
-<!-- password-script -->
-<script>
-    window.onload = function () {
-        document.getElementById("password1").onchange = validatePassword;
-        document.getElementById("password2").onchange = validatePassword;
-    }
-
-    function validatePassword() {
-        var pass2 = document.getElementById("password2").value;
-        var pass1 = document.getElementById("password1").value;
-        if (pass1 != pass2)
-            document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-        else
-            document.getElementById("password2").setCustomValidity('');
-        //empty string means no validation error
-    }
-</script>
-<!-- imagezoom -->
-<script src="js/imageoom.js"></script>
-<!-- //imagezoom -->
-
-<!-- flexslider -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-
-<script src="js/jquery.flexslider.js"></script>
-<!-- scroll seller -->
-<script src="js/scroll.js"></script>
-<!-- //scroll seller -->
-<script>
-    // Can also be used with $(document).ready()
-    $(window).load(function () {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            controlNav: "thumbnails"
-        });
-    });
-</script>
-<!-- //FlexSlider-->
-<!-- //password-script -->
-
-
-<script>
-    jQuery(document).ready(function ($) {
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-
-            $('html,body').animate({
-                scrollTop: $(this.hash).offset().top
-            }, 1000);
-        });
-    });
-</script>
-<!-- //end-smooth-scrolling -->
-
-<!-- smooth-scrolling-of-move-up -->
-<script>
-    $(document).ready(function () {
-        /*
-        var defaults = {
-            containerID: 'toTop', // fading element id
-            containerHoverID: 'toTopHover', // fading element hover id
-            scrollSpeed: 1200,
-            easingType: 'linear'
-        };
-        */
-        $().UItoTop({
-            easingType: 'easeOutQuart'
-        });
-
-    });
-</script>
-<!-- //smooth-scrolling-of-move-up -->
-
-<!-- for bootstrap working -->
-<script src="js/bootstrap.js"></script>
-<!-- //for bootstrap working -->
-<!-- //js-files -->
-</body>
-
-</html>

@@ -102,7 +102,7 @@
                         </li>
                         <c:if test="${sessionScope.username == 'admin'}">
                             <li class="text-center b text-white">
-                                <a class="nav-link" href="">Quản lý</a>
+                                <a class="nav-link" href="Admin">Quản lý</a>
                             </li>
                         </c:if>
                         <li class="text-center text-white">
