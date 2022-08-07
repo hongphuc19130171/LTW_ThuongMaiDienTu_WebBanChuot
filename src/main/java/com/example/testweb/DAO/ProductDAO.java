@@ -43,6 +43,81 @@ public class ProductDAO {
 
         return list;
     }
+    public Product EditProduct(int sanpham_id, int danhmuc_id, String sanpham_name, String sanpham_gia, String sanpham_giakm,String sanpham_active, String sanpham_hot,String sanpham_soluong, String sanpham_image, String sanpham_inf1, String sanpham_inf2, String sanpham_inf3, String sanpham_inf4) {
+        String query = "update sanpham set danhmuc_id=?, sanpham_name =?,sanpham_gia=?,sanpham_giakm=?,sanpham_active=?,sanpham_hot=?,sanpham_soluong=?,sanpham_image=?,sanpham_inf1=?,sanpham_inf2=?,sanpham_inf3=?,sanpham_inf4=? WHERE sanpham_id = ?";
+        try{
+            conn = DBConnect.connect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,danhmuc_id);
+            ps.setString(2, sanpham_name);
+            ps.setString(3, sanpham_gia);
+            ps.setString(4, sanpham_giakm);
+            ps.setString(5, sanpham_active);
+            ps.setString(6, sanpham_hot);
+            ps.setString(7, sanpham_soluong);
+            ps.setString(8, sanpham_image);
+            ps.setString(9, sanpham_inf1);
+            ps.setString(10, sanpham_inf2);
+            ps.setString(11, sanpham_inf3);
+            ps.setString(12, sanpham_inf4);
+            ps.setInt(13,sanpham_id);
+
+
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Product AddProduct(int sanpham_id, int danhmuc_id, String sanpham_name, String sanpham_gia, String sanpham_giakm,String sanpham_active, String sanpham_hot,String sanpham_soluong, String sanpham_image, String sanpham_inf1, String sanpham_inf2, String sanpham_inf3, String sanpham_inf4) {
+        String query = "insert into sanpham value (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        try{
+            conn = DBConnect.connect().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,sanpham_id);
+            ps.setInt(2,danhmuc_id);
+            ps.setString(3,sanpham_name);
+            ps.setString(4,sanpham_gia);
+            ps.setString(5,sanpham_giakm);
+            ps.setString(6,sanpham_active);
+            ps.setString(7,sanpham_hot);
+            ps.setString(8,sanpham_soluong);
+            ps.setString(9,sanpham_image);
+            ps.setString(10,sanpham_inf1);
+            ps.setString(11,sanpham_inf2);
+            ps.setString(12,sanpham_inf3);
+            ps.setString(13,sanpham_inf4);
+
+
+
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public Product DelProduct(int sanpham_id) {
+        String query = "delete from sanpham where sanpham_id = ? ";
+        try{
+            conn = DBConnect.connect().getConnection();
+            ps = conn.prepareStatement(query);
+
+            ps.setInt(1,sanpham_id);
+            ps.executeUpdate();
+
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
     public List<Product> getAllHot() {
         List<Product> list = new ArrayList<>();
         String query = "SELECT * from sanpham WHERE sanpham_active = '0' ORDER BY sanpham_id DESC";
@@ -365,8 +440,8 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         ProductDAO p = new ProductDAO();
-        System.out.println(p.PageGaming(1));
-
+       p.AddProduct(53,1,"minh1","900000","800000","0","0","1234","2.jpg","2_1.jpg","2_2.jpg","2_3.jpg","2_4.jpg");
+//        p.DelProduct(53);
 
 
 
