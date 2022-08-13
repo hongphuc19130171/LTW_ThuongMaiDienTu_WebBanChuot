@@ -28,7 +28,7 @@ public class CartController extends HttpServlet {
         request.setAttribute("g",giohangUser);
         request.setAttribute("gAll",g);
         request.setAttribute("danhmuc",danhmuc);
-        request.getRequestDispatcher("giohang.jsp").forward(request,response);
+        request.getRequestDispatcher("Cart.jsp").forward(request,response);
     }
 
     @Override

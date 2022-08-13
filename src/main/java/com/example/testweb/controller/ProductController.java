@@ -87,7 +87,7 @@ public class ProductController extends HttpServlet {
         request.setAttribute("timkiem",timkiem);
 
 
-        request.getRequestDispatcher("Sanpham.jsp").forward(request,response);
+        request.getRequestDispatcher("Product.jsp").forward(request,response);
 
 
 

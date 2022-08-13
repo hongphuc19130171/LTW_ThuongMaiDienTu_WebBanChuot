@@ -14,7 +14,7 @@
 <html lang="zxx">
 
 <head>
-    <title>Mouse Shop</title>
+    <title>Mouse Store</title>
 
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,7 +91,7 @@
 
     </c:when>
     <c:when test="${param.quanly == 'danhmuc'}">
-        <%@ include file = "danhmuc.jsp" %>
+        <%@ include file = "Category.jsp" %>
 
     </c:when>
     <c:when test="${param.quanly == 'giohangUpdate'}">
@@ -114,23 +114,23 @@
             </script>
         </c:if>
         <c:if test = "${sessionScope.username != null}">
-            <%@ include file = "giohang.jsp" %>
+            <%@ include file = "Cart.jsp" %>
         </c:if>
 
 
     </c:when>
     <c:when test="${param.quanly == 'chitietsp'}">
-    <%@ include file = "chitietsp.jsp" %>
+    <%@ include file = "Detail.jsp" %>
 
     </c:when>
 
     <c:when test="${param.quanly == 'giohang'}">
-        <%@ include file = "giohang.jsp" %>
+        <%@ include file = "Cart.jsp" %>
 
     </c:when>
 
     <c:when test="${param.quanly == 'thanhtoan'}">
-        <%@ include file = "thanhtoan.jsp" %>
+        <%@ include file = "Payment.jsp" %>
 
     </c:when>
 

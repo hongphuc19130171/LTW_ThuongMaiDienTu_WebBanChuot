@@ -6,7 +6,7 @@
 <html lang="zxx">
 
 <head>
-  <title>Mouse Shop</title>
+  <title>Mouse Store</title>
   <!-- Meta tag Keywords -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8" />
@@ -233,7 +233,8 @@
                   <div class="form-group"><label class="text-muted">Tên đăng nhập</label><input type="text" class="form-control" name="username"> </div>
                   <div class="form-group"><label class="text-muted">Mật khẩu</label><input type="password" class="form-control" name="password"> </div>
                   <div class="form-group">
-                    Chưa có tài khoản? <a href="SignUp">Đăng kí </a>ngay!
+                    Chưa có tài khoản? <a href="SignUp">Đăng kí </a>ngay! <br>
+                    Bạn quên mật khẩu? <a href="FogotPass">Lấy lại mật khẩu </a>ngay!
                   </div> <button type="submit" class="btn btn-primary">Đăng nhập</button>
                 </form>
               </div>

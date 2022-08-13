@@ -41,7 +41,7 @@ public class PaymentController extends HttpServlet {
                 giohang addUser = GiohangDAO.getInstance().addInfoKhachHang(user,ten,sdt,diachi,ID,sanpham,tong_tien,trangthai);
                 giohang thanhtoan = GiohangDAO.getInstance().addFromGiohangToDaban(user);
                 List<giohang> updateLaiGioHang = GiohangDAO.getInstance().UpdateLaiSanPham(user);
-                request.getRequestDispatcher("thanhtoan.jsp").forward(request,response);
+                request.getRequestDispatcher("Payment.jsp").forward(request,response);
                 List<giohang> del = GiohangDAO.getInstance().DelByUser(user);
             }else {
 

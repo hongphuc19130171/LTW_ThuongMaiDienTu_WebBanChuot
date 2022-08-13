@@ -71,7 +71,7 @@ public class KhachHangDAO {
 
     public static void main(String[] args) {
         KhachHangDAO k = new KhachHangDAO();
-        System.out.println(k.getByUser("minhpro00001"));
+        System.out.println(k.getAll());
     }
 
 }

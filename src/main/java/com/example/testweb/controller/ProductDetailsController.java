@@ -33,7 +33,7 @@ public class ProductDetailsController extends HttpServlet {
         request.setAttribute("dem",dem);
         request.setAttribute("row_sp",p);
         request.setAttribute("tt",tt);
-        request.getRequestDispatcher("chitietsp.jsp").forward(request,response);
+        request.getRequestDispatcher("Detail.jsp").forward(request,response);
 
     }
 

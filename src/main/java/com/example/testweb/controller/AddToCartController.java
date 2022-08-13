@@ -31,7 +31,7 @@ public class AddToCartController extends HttpServlet {
             String soluong = request.getParameter("soluong");
             String thanhtien = request.getParameter("thanhtien");
             giohang g = MuaSPDAO.getInstance().addItem(user,id,tensp,gia,img,soluong,thanhtien);
-            request.getRequestDispatcher("themSP.jsp").forward(request, response);
+            request.getRequestDispatcher("AddProduct.jsp").forward(request, response);
         }else {
             String link = "chitietSP?danhmuc="+danhmuc+"&id="+id;
             response.sendRedirect(link);
