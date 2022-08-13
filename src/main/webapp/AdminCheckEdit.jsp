@@ -107,7 +107,7 @@
                     </li>
 
                     <li class="nav-item mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link" href="AdminStatistic">Thống kê thông số</a>
+                        <a class="nav-link" href="AdminOrder">Quản lý đơn hàng</a>
                     </li>
 
 

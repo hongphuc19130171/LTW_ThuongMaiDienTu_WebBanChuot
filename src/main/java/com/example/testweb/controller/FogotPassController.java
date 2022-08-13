@@ -19,7 +19,7 @@ public class FogotPassController extends HttpServlet {
 
         AccountDAO.getInstance().ForgotPass(user,email);
 
-        request.getRequestDispatcher("QuenMK.jsp").forward(request,response);
+        request.getRequestDispatcher("ForgotPassword.jsp").forward(request,response);
     }
 
     @Override

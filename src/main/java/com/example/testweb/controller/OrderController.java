@@ -29,7 +29,7 @@ public class OrderController extends HttpServlet {
         request.setAttribute("k",k);
 
         request.setAttribute("danhmuc",danhmuc);
-        request.getRequestDispatcher("donhang.jsp").forward(request,response);
+        request.getRequestDispatcher("Order.jsp").forward(request,response);
     }
 
     @Override

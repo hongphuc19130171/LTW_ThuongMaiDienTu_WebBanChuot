@@ -32,7 +32,7 @@ public class WirelessMouseController extends HttpServlet {
         request.setAttribute("pageS",pageS);
         request.setAttribute("khongday",khongday);
 
-        request.getRequestDispatcher("KhongDay.jsp").forward(request,response);
+        request.getRequestDispatcher("Wireless.jsp").forward(request,response);
 
     }
 

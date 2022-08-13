@@ -27,7 +27,7 @@ public class PurchasedProductController extends HttpServlet {
         request.setAttribute("g",giohangUser);
         request.setAttribute("gAll",g);
         request.setAttribute("danhmuc",danhmuc);
-        request.getRequestDispatcher("SPDaMua.jsp").forward(request,response);
+        request.getRequestDispatcher("Purchased.jsp").forward(request,response);
 
     }
 

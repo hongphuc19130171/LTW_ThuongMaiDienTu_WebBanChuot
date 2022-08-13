@@ -31,7 +31,7 @@ public class WiredMouseController extends HttpServlet {
         }
         request.setAttribute("pageS",pageS);
         request.setAttribute("coday",coday);
-        request.getRequestDispatcher("CoDay.jsp").forward(request,response);
+        request.getRequestDispatcher("Wired.jsp").forward(request,response);
 
     }
 

@@ -22,7 +22,7 @@ public class RemoveProductController extends HttpServlet {
 
 
         giohang g = MuaSPDAO.getInstance().delItem(user,id);
-        request.getRequestDispatcher("XoaSP.jsp").forward(request,response);
+        request.getRequestDispatcher("DeleteProduct.jsp").forward(request,response);
     }
 
     @Override

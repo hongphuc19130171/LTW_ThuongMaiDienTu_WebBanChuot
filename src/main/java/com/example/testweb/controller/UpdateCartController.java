@@ -21,7 +21,7 @@ public class UpdateCartController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         giohang g = MuaSPDAO.getInstance().updateItem(user,soluong,id);
-        request.getRequestDispatcher("CapNhat.jsp").forward(request,response);
+        request.getRequestDispatcher("Update.jsp").forward(request,response);
 
 
     }
