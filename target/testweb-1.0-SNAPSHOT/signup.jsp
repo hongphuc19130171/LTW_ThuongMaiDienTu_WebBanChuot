@@ -234,7 +234,7 @@
                   <div class="form-group"><label class="text-muted">Nhập lại mật khẩu</label><input type="password" class="form-control" name="rePass"> </div>
                   <div class="form-group"><label class="text-muted">Email</label><input type="text" class="form-control" name="email"> </div>
 
-                  <div class="form-group">Đã có tài khoản<a href="Login">Đăng nhập ngay</a>ngay!
+                  <div class="form-group">Đã có tài khoản<a href="Login"> Đăng nhập </a>ngay!
                   </div> <button type="submit" class="btn btn-primary">Đăng kí</button>
                 </form>
               </div>
