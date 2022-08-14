@@ -24,14 +24,14 @@ public class SignUpController extends HttpServlet {
             Account a = AccountDAO.getInstance().checkAccountExist(user);
             if(a == null){
                 if (user == null) {
-                    request.getRequestDispatcher("signup.jsp").forward(request,response);
+                    request.getRequestDispatcher("Signup.jsp").forward(request,response);
                 }else {
                     AccountDAO.getInstance().register(user, pass, email, fullname);
                     Account ac = AccountDAO.getInstance().login(user, pass);
                     HttpSession session = request.getSession();
                     session.setAttribute("acc", ac);
                     request.setAttribute("error", "Đăng kí tài khoản thành công!");
-                    request.getRequestDispatcher("signup.jsp").forward(request, response);
+                    request.getRequestDispatcher("Signup.jsp").forward(request, response);
                 }
 
 
@@ -39,7 +39,7 @@ public class SignUpController extends HttpServlet {
                 request.setAttribute("user", user);
                 request.setAttribute("email", email);
                 request.setAttribute("error", "Tài khoản đã tồn tại!");
-                request.getRequestDispatcher("signup.jsp").forward(request,response);
+                request.getRequestDispatcher("Signup.jsp").forward(request,response);
             }
         }catch (Exception e){
 

@@ -26,7 +26,7 @@ public class AccountController extends HttpServlet {
         HttpSession session = request.getSession();
         String action = request.getParameter("action");
         if (action == null) {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
 
 
         } else {
@@ -53,7 +53,7 @@ public class AccountController extends HttpServlet {
             response.sendRedirect("Trangchu");
         } else {
             request.setAttribute("error", "Tài khoảng hoặc mật khẩu không chính xác");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
     }
 

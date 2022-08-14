@@ -21,16 +21,16 @@ public class ChangePassController extends HttpServlet {
 
         if (a == null) {
             if (pass == null) {
-                request.getRequestDispatcher("changePass.jsp").forward(request,response);
+                request.getRequestDispatcher("ChangePass.jsp").forward(request,response);
             }else {
                 request.setAttribute("error", "Mật khẩu không chính xác!");
-                request.getRequestDispatcher("changePass.jsp").forward(request, response);
+                request.getRequestDispatcher("ChangePass.jsp").forward(request, response);
             }
         }
         else {
             request.setAttribute("error", "Thay đổi mật khẩu thành công!");
             Account acc = ChangePassAccount.getInstance().changePass(newPass,user);
-            request.getRequestDispatcher("changePass.jsp").forward(request,response);
+            request.getRequestDispatcher("ChangePass.jsp").forward(request,response);
         }
     }
 

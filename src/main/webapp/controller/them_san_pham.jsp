@@ -3,7 +3,7 @@
 <c:if test = "${sessionScope.username == null}">
     <script type="text/javascript">
         alert("Vui lòng đăng nhập để tiếp tục!")
-        window.location.href = "login.jsp"
+        window.location.href = "Login.jsp"
     </script>
 </c:if>
 

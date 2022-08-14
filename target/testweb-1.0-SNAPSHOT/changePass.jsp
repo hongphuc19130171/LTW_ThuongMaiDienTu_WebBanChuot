@@ -9,7 +9,7 @@
     <title>Mouse Store</title>
     <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="keywords" content="Mouse Store"
     />
     <script>
@@ -23,21 +23,22 @@
     </script>
     <!-- //Meta tag Keywords -->
 
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Bootstrap css -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- Main css -->
     <link rel="stylesheet" href="css/fontawesome-all.css">
     <!-- Font-Awesome-Icons-CSS -->
-    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- pop-up-box -->
-    <link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="css/centerShop.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/centerShop.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- menu style -->
     <!-- //Custom-Files -->
 
     <!-- web fonts -->
-    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+          rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
           rel="stylesheet">
     <!-- //web fonts -->
@@ -45,22 +46,23 @@
 
 <body>
 <%--cssShop--%>
-<link href="css/centerShop.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/centerShop.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- Bootstrap css -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- Main css -->
 <link rel="stylesheet" href="css/fontawesome-all.css">
 <!-- Font-Awesome-Icons-CSS -->
-<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- pop-up-box -->
-<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/centerShop.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/menu.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="css/centerShop.css" rel="stylesheet" type="text/css" media="all"/>
 <!-- menu style -->
 <!-- //Custom-Files -->
 
 <!-- web fonts -->
-<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+      rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
       rel="stylesheet">
 <!-- //web fonts -->
@@ -87,7 +89,7 @@
                     <li class="text-center  text-white">
                         <i class="fas fa-phone mr-2"></i> 083 8883 388
                     </li>
-                    <c:if test="${sessionScope.username == null}" >
+                    <c:if test="${sessionScope.username == null}">
                         <li class="text-center b text-white">
                             <a class="nav-link" href="Login">Đăng nhập</a>
                         </li>
@@ -96,7 +98,7 @@
                         </li>
 
                     </c:if>
-                    <c:if test="${sessionScope.username != null}" >
+                    <c:if test="${sessionScope.username != null}">
                         <li class="text-center b text-white">
                             <a>Chào: ${sessionScope.username}</a>
                         </li>
@@ -144,7 +146,8 @@
                     <!-- search -->
                     <div class="col-10 agileits_search">
                         <form class="form-inline" action="Sanpham?fill=4&page=1" method="post">
-                            <input class="form-control mr-sm-2" name="timkiem" type="search" placeholder="Tìm kiếm" aria-label="Search" required>
+                            <input class="form-control mr-sm-2" name="timkiem" type="search" placeholder="Tìm kiếm"
+                                   aria-label="Search" required>
                             <button class="btn my-2 my-sm-0" type="submit">Tìm kiếm</button>
                         </form>
                     </div>
@@ -164,7 +167,8 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -178,7 +182,8 @@
 
 
                     <c:forEach var="danhmuc" items="${danhmuc}">
-                        <a class="nav-link" href="Danhmuc-${danhmuc.stt_nha_san_xuat}?page=1">${danhmuc.nha_san_xuat}</a>
+                        <a class="nav-link"
+                           href="Danhmuc-${danhmuc.stt_nha_san_xuat}?page=1">${danhmuc.nha_san_xuat}</a>
                     </c:forEach>
 
 
@@ -187,7 +192,8 @@
                     </li>
 
                     <li class="nav-item dropdown mr-lg-2 mb-lg-0 mb-2">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
                             Khách hàng
                         </a>
                         <div class="dropdown-menu">
@@ -199,7 +205,6 @@
                         </div>
                     </li>
                     <li class="nav-item">
-
 
 
                     </li>
@@ -233,7 +238,6 @@
     <div class="container py-xl-0 py-lg-2">
 
 
-
         <div id="content" class="flex">
             <div class="">
                 <div class="page-content page-container" id="page-content">
@@ -245,11 +249,14 @@
                                     <div class="card-body">
                                         ${error }
                                         <form method="post" action="ChangePass">
-                                            <div class="form-group"><label class="text-muted">Mật khẩu cũ</label><input type="password" class="form-control" name="password"> </div>
-                                            <div class="form-group"><label class="text-muted">Mật khẩu mới</label><input type="password" class="form-control" name="new_pass"> </div>
+                                            <div class="form-group"><label class="text-muted">Mật khẩu cũ</label><input
+                                                    type="password" class="form-control" name="password"></div>
+                                            <div class="form-group"><label class="text-muted">Mật khẩu mới</label><input
+                                                    type="password" class="form-control" name="new_pass"></div>
                                             <div class="form-group">
 
-                                            </div> <button type="submit" class="btn btn-primary">Thay đổi</button>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Thay đổi</button>
                                         </form>
                                     </div>
                                 </div>
@@ -350,7 +357,7 @@
 <!-- //imagezoom -->
 
 <!-- flexslider -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
 
 <script src="js/jquery.flexslider.js"></script>
 <script>
@@ -406,7 +413,7 @@
 <!-- for bootstrap working -->
 <script src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
-<%@ include file = "includes/footer.jsp" %>
+<%@ include file="includes/footer.jsp" %>
 <%-- //js-files --
 
 
@@ -498,7 +505,7 @@
 <!-- //imagezoom -->
 
 <!-- flexslider -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
 
 <script src="js/jquery.flexslider.js"></script>
 <!-- scroll seller -->
