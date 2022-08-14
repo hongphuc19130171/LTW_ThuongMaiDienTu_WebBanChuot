@@ -18,13 +18,13 @@ public class WiredMouseController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int page = Integer.parseInt(request.getParameter("page"));
-        List<Product> productWireLess = ProductDAO.getInstance().getAllWireless();
+        List<Product> productWired = ProductDAO.getInstance().getAllWired();
         List<Danhmuc> danhmuc = DanhmucDAO.getInstance().getAll();
         List<Product> coday = ProductDAO.getInstance().PageCoDay(page);
-        request.setAttribute("productWireLess",productWireLess);
+
         request.setAttribute("danhmuc",danhmuc);
 
-        int pageG = productWireLess.size();
+        int pageG = productWired.size();
         int pageS = pageG / 6;
         if (pageG%6 !=0) {
             pageS++;

@@ -175,7 +175,7 @@ public class ProductDAO {
     }
     public List<Product> getAllWired() {
         List<Product> list = new ArrayList<>();
-        String query = "SELECT * from sanpham WHERE danhmuc_id ='2' ORDER BY sanpham_id DESC";
+        String query = "SELECT * from sanpham WHERE danhmuc_id ='3' ORDER BY sanpham_id DESC";
         try {
             conn = DBConnect.connect().getConnection();
             ps = conn.prepareStatement(query);
@@ -193,7 +193,7 @@ public class ProductDAO {
     }
     public List<Product> getAllWireless() {
         List<Product> list = new ArrayList<>();
-        String query = "SELECT * from sanpham WHERE danhmuc_id ='3' ORDER BY sanpham_id DESC";
+        String query = "SELECT * from sanpham WHERE danhmuc_id ='2' ORDER BY sanpham_id DESC";
         try {
             conn = DBConnect.connect().getConnection();
             ps = conn.prepareStatement(query);
@@ -440,8 +440,7 @@ public class ProductDAO {
 
     public static void main(String[] args) {
         ProductDAO p = new ProductDAO();
-       p.AddProduct(53,1,"minh1","900000","800000","0","0","1234","2.jpg","2_1.jpg","2_2.jpg","2_3.jpg","2_4.jpg");
-//        p.DelProduct(53);
+        System.out.println(p.getAllWireless());
 
 
 

@@ -30,7 +30,7 @@ public class CategoryController extends HttpServlet {
         request.setAttribute("productActive",productActive);
 
 //        request.getRequestDispatcher("includes/menu.jsp").forward(request,response);
-        request.getRequestDispatcher("index1.jsp").forward(request,response);
+        request.getRequestDispatcher("index.jsp").forward(request,response);
 
 
     }

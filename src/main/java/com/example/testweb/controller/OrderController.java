@@ -24,8 +24,6 @@ public class OrderController extends HttpServlet {
         List<KhachHang> k = KhachHangDAO.getInstance().getByUser(user);
 
 
-//
-
         request.setAttribute("k",k);
 
         request.setAttribute("danhmuc",danhmuc);
